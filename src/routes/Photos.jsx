@@ -11,6 +11,11 @@ const Photos = () => {
   const [error, setError] = useState(null);
 
   const deletePhoto = (id) => {
+    fetch(`http://localhost:3001/photos/${id}`,{method : "DELETE" })
+    .then(()=>{
+      const sementara = photos.filter((data)=>data.id !== id)
+      setPhotos(sementara)
+    })
     // TODO: answer here
   };
 
